@@ -16,6 +16,7 @@
 	margin-right: 400px;
 	margin-bottom: 20px;
 	width: 400px;
+	font-size: 20px;
 }
 
 
@@ -44,9 +45,14 @@
   	float:left;
   	text-align: center;
   	position: relative;
+  	font-size: 178px;
  
 
  
+}
+
+.box:hover {
+	background-color: dodgerblue;
 }
 
 .innerBox {
