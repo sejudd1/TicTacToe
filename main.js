@@ -1,8 +1,8 @@
 
-var player = 1;
 var boxes = $(".box");
 var turns = 0;
-var button = document.querySelector("button");
+var $button = $("button");
+var tie = 0;
 var array = [[0,1,2],[3,4,5],[6,7,8],[0,4,8],[1,4,7],[2,5,8],[0,3,6],[2,4,6]];
 
 
@@ -14,35 +14,61 @@ if (!$(this).html())
 	if (turns ===1){
 		$(this).html("X");
 	}else {
-	 $(this).html("O");
+	 	$(this).html("O");
 	}
+	checkWinner();
+	tie++;
+	if(tie > 8){
+		console.log("Tie!");
+		alert("Tie!");
+	}
+
 	turns = turns === 0 ? 1 : 0;
  };
- checkWinner();
+ 
 
 });
 
 $("#reset").on("click", function(){
  console.log(this);
- $(".box").empty();
+ $(".box").empty()
 });
 
 
 function checkWinner(){
 	$.each( array, function(i,value){
-		if (boxes[value[0]].innerHTML === boxes[value[1]].innerHTML && boxes[value[1]].innerHTML === boxes[value[2]].innerHTML && boxes[value[0]].innerHTML !== "")
+		if (boxes[value[0]].innerHTML === boxes[value[1]].innerHTML
+		 	&& boxes[value[1]].innerHTML === boxes[value[2]].innerHTML
+		  	&& boxes[value[0]].innerHTML !== "")
 		{
-			console.log(player + " Wins!");
-			
+			if (turns === 1){
+				console.log("X Wins!");
+				alert("X Wins!");
+			}else {
+				console.log("O Wins!");
+				alert("O Wins!");
+			}
+				
+		// }else{ function CheckforTie(){
+  //           	for(var i=1;i<10;i++){
+		// 				if(getBox(i)=="")
+  //              			return false;
+  //           }
+  //           return true;
 
-		}
+		} 
+        
 	}
 		
  
 )};
 
- 
 
+ 
+//else if($(boxes[value[i]]).val() === 9) {
+		// 	 console.log(this);
+		// 	 alert(this);
+		// }
 
 
 
